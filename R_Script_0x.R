@@ -25,7 +25,7 @@
 # 21 - t-test w/ R
 # 22 - correlation (Spearman, Bravais-Pearson (Pearson's r), Kendall)
 # 23 - Correlation: strength and significance
-# 24 - Creation maps
+# 24 - Create maps
 ########################################################
 
 ########################################################
