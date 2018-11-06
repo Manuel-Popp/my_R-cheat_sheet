@@ -24,8 +24,9 @@
 # 20 - combining multiple plots on one layer
 # 21 - t-test w/ R
 # 22 - correlation (Spearman, Bravais-Pearson (Pearson's r), Kendall)
-# 23 - Correlation: strength and significance
-# 24 - Create maps
+# 23 - correlation: strength and significance
+# 24 - create maps
+# 25 - combine data
 ########################################################
 
 ########################################################
@@ -567,3 +568,13 @@ plot_01 <- ggplot(dfx, aes(x = lon, y = lat)) +
   geom_point(data = sites, aes(x = sites$longitude, y = sites$latitude, col = sites$vegclass))
 
 plot_01
+
+########################################################
+#25 combine data
+########################################################
+# When combining two sets of data, it is important whether the entries are in the same order in both sources.
+# the match() command tells us at which place in the second data set the entry with a certain name is stored.
+# It gives out the row in which the entries must be ordered to make both sources fit together.
+m <- match(df1$ID, df2$ID)
+df1$additional_data <- df2[m]
+df1[!is.na(df1$additional_data),] # remove the rows where no data was added, hence the rows that exist only in one data frame
